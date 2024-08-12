@@ -1,16 +1,17 @@
-from isPrime2 import isPrime2
+from helper import isPrime2
 import itertools
-from tqdm import tqdm
-prime_list=[i for i in range(1000) if isPrime2(i)]
-print(len(prime_list))
+
+prime_list=[i for i in range(100000) if isPrime2(i)]
+print((prime_list))
 def is_pair_prime(x,y):
 	if isPrime2(int(str(x)+str(y))) and isPrime2(int(str(y)+str(x))):
 		return True
 	else:
 		return False
-def five_prime(prime_list):
-	for i in range(5):
-		for j in range(i+1,5):
+
+def n_prime(prime_list,n):
+	for i in range(n):
+		for j in range(i+1,n):
 			#print(prime_list[j])
 			if [prime_list[i],prime_list[j]] not in bad_list:
 				if is_pair_prime(prime_list[i],prime_list[j]) !=True:
@@ -18,8 +19,32 @@ def five_prime(prime_list):
 			else:
 				return False
 	return True
+
+
+def four_prime(prime_list):
+	for i in range(4):
+		for j in range(i+1,4):
+			#print(prime_list[j])
+			if [prime_list[i],prime_list[j]] not in bad_list:
+				if is_pair_prime(prime_list[i],prime_list[j]) !=True:
+					return [prime_list[i],prime_list[j]]
+			else:
+                global bad_list.append(
+				return False
+	return True
 bad_list=[]
 good_list=[]
+
+newN=9
+flag=0
+
+while flag==0:
+
+
+
+
+
+print(len(list(itertools.combinations(prime_list,5))))
 '''
 for n in range(2**len(prime_list)):
 	if n%100000==0: print(n)
@@ -48,7 +73,6 @@ for c in tqdm(prime_combos,total=   len(list(prime_combos))):
 	print(bad_list)
 	if ans: 
 		print('%s\t%d'%(','.join(c),sum(c)))
-'''
 
 prime_combos2=itertools.combinations(prime_list,2)
 ct=0
@@ -77,7 +101,7 @@ print(len(prime_list))
 
 
 
-'''
+
 comb5=itertools.combinations(prime_list,5)
 
 new_comb=[]

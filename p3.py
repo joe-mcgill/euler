@@ -1,1 +1,3 @@
-print(29*29)
+import isPrime2 as ip
+
+print(ip.primeFactors(600851475143))
